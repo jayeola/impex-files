@@ -1,0 +1,22 @@
+UPDATE SolrServerConfig;pk[unique=true];name
+;8796289665188;maSolrStandaloneUAT
+UPDATE SolrEndpointUrl;pk[unique=true];url
+#master
+;8796355201189;http://10.7.2.137:8983/solr
+#slave1
+;8796355233957;http://10.7.12.66:8983/solr
+#slave2
+REMOVE SolrEndpointUrl;pk[unique=true];
+;8796355266725;
+#articles
+UPDATE SolrServerConfig;pk[unique=true];name
+;8796322433188;maSolrStandaloneSysRespArticlesUAT
+UPDATE SolrEndpointUrl;pk[unique=true];url
+#master
+;8796191361189;http://10.7.2.137:8983/solr
+#slave1
+;8796256897189;http://10.7.12.66:8983/solr
+#slave2
+REMOVE SolrEndpointUrl;pk[unique=true];
+;8796289665189;
+UPDATE User;uid[unique=true];name[unique=true];encodedPassword;hmcLoginDisabled

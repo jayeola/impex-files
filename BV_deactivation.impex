@@ -1,0 +1,11 @@
+UPDATE BVUploadDataCronJob;code[unique=true];active
+;bestpet-GB-ProductFeedUploadDataCronJob;false
+;ma-DE-ProductFeedUploadDataCronJob;false
+;ma-ES-ProductFeedUploadDataCronJob;false
+;ma-FR-ProductFeedUploadDataCronJob;false
+;ma-GB-ProductFeedUploadDataCronJob;false
+;ma-NL-ProductFeedUploadDataCronJob;false
+;petmeds-DE-ProductFeedUploadDataCronJob;false
+;petmeds-FR-ProductFeedUploadDataCronJob;false
+;petmeds-GB-ProductFeedUploadDataCronJob;false
+;petsupermarket-GB-ProductFeedUploadDataCronJob;false

@@ -1,0 +1,166 @@
+
+#$environment=med-st
+#$environment=med-uat
+#$environment=uat
+#$environment=staging
+#$environment=www2
+#$environment=systest
+#$environment=hybris5systest
+#$environment=sap
+$environment=sap-test
+
+
+#$sysTestPort=:9002/paygate
+$sysTestPort=/paygate
+
+# Create the merchant accounts per brand
+INSERT_UPDATE PaygateProviderConfig;providerName[unique=true];merchantID;password;hmacKey;returnUrl;requestBaseUrl
+;medicAnimal_gb;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.medicanimal.com$sysTestPort;https://www.computop-paygate.com/
+;medicAnimal_de;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.medicanimal.de$sysTestPort;https://www.computop-paygate.com/
+;medicAnimal_nl;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.medicanimal.nl$sysTestPort;https://www.computop-paygate.com/
+;medicAnimal_es;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.medicanimal.es$sysTestPort;https://www.computop-paygate.com/
+;medicAnimal_fr;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.medicanimal.fr$sysTestPort;https://www.computop-paygate.com/
+;petmeds_gb;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.petmeds.co.uk$sysTestPort;https://www.computop-paygate.com/
+;petmeds_de;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.petmeds.de$sysTestPort;https://www.computop-paygate.com/
+;petmeds_es;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.petmeds.es$sysTestPort;https://www.computop-paygate.com/
+;petmeds_fr;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.petmeds.fr$sysTestPort;https://www.computop-paygate.com/
+;petmeds_at;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.petmeds.at$sysTestPort;https://www.computop-paygate.com/
+;bestpet_gb;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.bestpet.co.uk$sysTestPort;https://www.computop-paygate.com/
+;animalmedicines_gb;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.animalmedicines.co.uk$sysTestPort;https://www.computop-paygate.com/
+;petsupermarket_gb;medicanimal_test;"Ls6=3_wQq2C!(r8E";"Fq5[4S_cw9Y*3Z]r)nR7C?8o=2bAyJ6(";https://$environment.pet-supermarket.co.uk$sysTestPort;https://www.computop-paygate.com/
+
+# Assume base stores have been created
+UPDATE CMSSite;uid[unique=true];paygateProvider(providerName);
+;ma-GB;medicAnimal_gb
+;ma-DE;medicAnimal_de
+;ma-NL;medicAnimal_nl
+;ma-FR;medicAnimal_fr
+;ma-ES;medicAnimal_es
+;petmeds-AT;petmeds_at
+;petmeds-DE;petmeds_de
+;petmeds-ES;petmeds_es
+;petmeds-FR;petmeds_fr
+;petmeds-GB;petmeds_gb
+;bestpet-GB;bestpet_gb
+;animalmedicines-GB;animalmedicines_gb
+;petsupermarket-GB;petsupermarket_gb
+
+INSERT_UPDATE PaygatePaymentMode;code[unique=true];orderDescription[lang=en]
+;creditcard;Test:0000
+;giropay;Test:0000
+;ideal;Test:0000
+;alipay;Test:0000
+;sofort;Test:0000
+;clickandbuy;Test:0000
+;mpass;Test:0000
+;eps;Test:0000
+;directdebit;Test:0000
+;cba;Test:0000
+;billsafe;Test:0000
+;klarnainvoice;Test:0000
+;klarnaaccount;Test:0000
+;billpayinvoice;Test:0000
+;billpaydirectdebit;Test:0000
+;billpayaccount;Test:0000
+;yapital;Test:0000
+;paypal;This is a PayPal order
+
+INSERT_UPDATE PaygatePaymentMode;code[unique=true];orderDescription[lang=de]
+;creditcard;Test:0000
+;giropay;Test:0000
+;ideal;Test:0000
+;alipay;Test:0000
+;sofort;Test:0000
+;clickandbuy;Test:0000
+;mpass;Test:0000
+;eps;Test:0000
+;directdebit;Test:0000
+;cba;Test:0000
+;billsafe;Test:0000
+;klarnainvoice;Test:0000
+;klarnaaccount;Test:0000
+;billpayinvoice;Test:0000
+;billpaydirectdebit;Test:0000
+;billpayaccount;Test:0000
+;yapital;Test:0000
+;paypal;This is a PayPal order
+
+INSERT_UPDATE PaygatePaymentMode;code[unique=true];orderDescription[lang=fr]
+;creditcard;Test:0000
+;giropay;Test:0000
+;ideal;Test:0000
+;alipay;Test:0000
+;sofort;Test:0000
+;clickandbuy;Test:0000
+;mpass;Test:0000
+;eps;Test:0000
+;directdebit;Test:0000
+;cba;Test:0000
+;billsafe;Test:0000
+;klarnainvoice;Test:0000
+;klarnaaccount;Test:0000
+;billpayinvoice;Test:0000
+;billpaydirectdebit;Test:0000
+;billpayaccount;Test:0000
+;yapital;Test:0000
+;paypal;This is a PayPal order
+
+INSERT_UPDATE PaygatePaymentMode;code[unique=true];orderDescription[lang=es]
+;creditcard;Test:0000
+;giropay;Test:0000
+;ideal;Test:0000
+;alipay;Test:0000
+;sofort;Test:0000
+;clickandbuy;Test:0000
+;mpass;Test:0000
+;eps;Test:0000
+;directdebit;Test:0000
+;cba;Test:0000
+;billsafe;Test:0000
+;klarnainvoice;Test:0000
+;klarnaaccount;Test:0000
+;billpayinvoice;Test:0000
+;billpaydirectdebit;Test:0000
+;billpayaccount;Test:0000
+;yapital;Test:0000
+;paypal;This is a PayPal order
+
+INSERT_UPDATE PaygatePaymentMode;code[unique=true];orderDescription[lang=at]
+;creditcard;Test:0000
+;giropay;Test:0000
+;ideal;Test:0000
+;alipay;Test:0000
+;sofort;Test:0000
+;clickandbuy;Test:0000
+;mpass;Test:0000
+;eps;Test:0000
+;directdebit;Test:0000
+;cba;Test:0000
+;billsafe;Test:0000
+;klarnainvoice;Test:0000
+;klarnaaccount;Test:0000
+;billpayinvoice;Test:0000
+;billpaydirectdebit;Test:0000
+;billpayaccount;Test:0000
+;yapital;Test:0000
+;paypal;This is a PayPal order
+
+INSERT_UPDATE PaygatePaymentMode;code[unique=true];orderDescription[lang=nl]
+;creditcard;Test:0000
+;giropay;Test:0000
+;ideal;Test:0000
+;alipay;Test:0000
+;sofort;Test:0000
+;clickandbuy;Test:0000
+;mpass;Test:0000
+;eps;Test:0000
+;directdebit;Test:0000
+;cba;Test:0000
+;billsafe;Test:0000
+;klarnainvoice;Test:0000
+;klarnaaccount;Test:0000
+;billpayinvoice;Test:0000
+;billpaydirectdebit;Test:0000
+;billpayaccount;Test:0000
+;yapital;Test:0000
+;paypal;This is a PayPal order
